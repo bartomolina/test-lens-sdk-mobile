@@ -30,10 +30,14 @@ export default function Home() {
       const signer = walletClientToSigner(walletClient);
       login(signer)
         .then((result) => {
+          // @ts-ignore
           console.log("Logged as:", result?.value?.handle);
+          // @ts-ignore
+          alert(`Logged as: ${result?.value?.handle}`);
         })
         .catch(() => {
           console.log("Error loggin in");
+          alert("Error loggin in");
         });
     }
   }, [isConnected, address, walletClient]);
